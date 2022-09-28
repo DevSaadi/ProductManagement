@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul class="nav nav-tabs">
+    <li><a data-toggle="tab" href="#firstTab">View All</a></li>
+    <li class="active"><a data-toggle="tab" href="#secondTab">Add New</a></li>
+</ul>
+<div class="tab-content">
+    <div id="firstTab" class="tab-pane fade in"><a asp-controller="Ajax" asp-action="ViewAll"></a></div>
+    <div id="secondTab" class="tab-pane fade in active"><a asp-controller="Ajax" asp-action="AddOrEdit"></a></div>
+</div>
+
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/Scripts.js"></script>
+
+    <script>
+        function activatejQueryTable() {
+            $("#productTable").DataTable();
+        }
+
+        $(function () {
+            activatejQueryTable();
+        });
+
+    </script>
+}
+
